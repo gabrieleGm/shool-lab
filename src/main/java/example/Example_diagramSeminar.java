@@ -2,6 +2,8 @@ package example;
 
 import java.util.List;
 
+import ch.gmtech.xutils.system.XSystem;
+
 public class Example_diagramSeminar {
 
 	public static void main(String[] args) {
@@ -16,5 +18,9 @@ public class Example_diagramSeminar {
 		System.out.println(location);
 		System.out.println(seatsLeft);
 		System.out.println(studentList.toString());
+		
+		XSystem courseManager = CourseSystemFactory.create();
+//		commandName=creaCorso|name=ComputerScience|description=Collaboration Diagram 1|number=AA123456|atRoom=ROOM 123|maxPartecipants=5
+//		commandName=signUp|firstName=Gabriele|lastName=Izzo
 	}
 }
