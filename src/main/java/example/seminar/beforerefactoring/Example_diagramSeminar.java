@@ -1,8 +1,9 @@
-package example;
+package example.seminar.beforerefactoring;
 
 import java.util.List;
 
 import ch.gmtech.xutils.system.XSystem;
+import example.seminar.afterrefactoring.CourseSystemFactory;
 
 public class Example_diagramSeminar {
 

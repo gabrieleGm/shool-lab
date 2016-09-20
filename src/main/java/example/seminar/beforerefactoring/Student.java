@@ -1,4 +1,4 @@
-package example;
+package example.seminar.beforerefactoring;
 
 public class Student {
 

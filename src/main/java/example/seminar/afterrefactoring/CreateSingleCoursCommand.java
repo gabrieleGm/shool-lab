@@ -1,13 +1,13 @@
-package example;
+package example.seminar.afterrefactoring;
 
 import ch.gmtech.xutils.commands.AbstractCommand;
 import ch.gmtech.xutils.fields.Fields;
 
-public class CreateCoursCommand extends AbstractCommand{
+public class CreateSingleCoursCommand extends AbstractCommand{
 
 	private final Fields _someFields;
 
-	public CreateCoursCommand(Fields someFields) {
+	public CreateSingleCoursCommand(Fields someFields) {
 		_someFields = someFields;
 	}
 

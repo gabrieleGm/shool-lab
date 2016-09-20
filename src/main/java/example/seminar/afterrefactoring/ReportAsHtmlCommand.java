@@ -1,4 +1,6 @@
-package example;
+package example.seminar.afterrefactoring;
+
+import java.util.List;
 
 import ch.gmtech.xutils.commands.AbstractCommand;
 import ch.gmtech.xutils.fields.Fields;
@@ -12,12 +14,7 @@ public class ReportAsHtmlCommand extends AbstractCommand {
 	}
 
 	public boolean execute(Fields anInput, Fields anOutput) {
-		String result = "no registered courses";
-		if(!_someFields.containsKey("number")) { 
-			anOutput.put("result", result);
-			return true;
-		}
-		result = ""
+		String result = ""
 				+ "<html>"
 				+ "<head>"
 					+ "<title>"+ _someFields.firstValueFor("name")  +"</title>"
@@ -28,22 +25,28 @@ public class ReportAsHtmlCommand extends AbstractCommand {
 						+ "<li>"+ _someFields.firstValueFor("description")+"</li>"
 						+ "<li>" +_someFields.firstValueFor("atRoom") +"</li>"
 						+ "<li>"+_someFields.firstValueFor("seatsLeft") +"</li>"
+						+ "<li>"+_someFields.firstValueFor("startDate") +"</li>"
 					+ "</ul>";
-		Fields partecipants = Fields.fromRaw(_someFields.firstValueFor("partecipants"));
-		if(partecipants.isEmpty()){
-			result +=""
-			+ "</body>"
-			+ "</html>";
-			anOutput.put("result", result);
-			return true;
+		
+		List<String> allPartecipants = _someFields.allValuesFor("partecipants");
+		result += "<div>partecipanti:</div>";
+		for (String each : allPartecipants) {
+			Fields current = Fields.fromRaw(each);
+			if(current.isEmpty()){
+				result +=""
+						+ "</body>"
+						+ "</html>";
+				anOutput.put("result", result);
+				return true;
+			}
+			result +=
+					  "<ul>"
+					+ "<li>" + current.firstValueFor("firstName") + " " + current.firstValueFor("lastName") + "</li>"
+					+ "</ul>";
 		}
-		result += "<div>partecipanti:</div>"
-					+ "<ul>"
-						+ "<li>" + partecipants.firstValueFor("firstName") + " " + partecipants.firstValueFor("lastName") + "</li>"
-					+ "</ul>"
-				+ "</body>"
+		result +=
+				"</body>"
 				+ "</html>";
-		result += "\n";
 		anOutput.put("result", result);
 		return true;
 	}

@@ -1,4 +1,4 @@
-package example;
+package example.seminar.afterrefactoring;
 
 import ch.gmtech.xutils.commands.AbstractCommand;
 import ch.gmtech.xutils.fields.Fields;
