@@ -1,0 +1,7 @@
+===== OSSERVAZIONI =====
+1) tutte le classi deprecate cosa mi indica?
+2) test unitari sulle classi non sui comportamenti
+3) modificare la struttura di corso per inserire la data di partenza (gestione scenari senza data? con null? se volessi avere la lista dei corsi ma non e' ancora stata decisa)
+4) il comportamento e' attivato da un main (ci sono 2 scenari con partecipanti / senza partecipanti)
+5) il codice non e' aggiornato (html non stampa una pagina html, csv non e' implementato, non sono presenti le informazioni sul corso)
+6) non si riescono a capire quali scenari il cliente puo' considerare come funzionanti e quali no.
